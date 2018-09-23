@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>test</title>
+<meta name="description" content="" />
+<meta name="ROBOTS" content="NOODP" />
+
+<link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/media/favicon.ico" type="image/x-icon">
+<link href="/media/css/quiz.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.js"></script>
+<link href="/media/css/print.css" rel="stylesheet" type="text/css"  media="print" />
+
+
+
+</head>
+<body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6553843-8']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+		clickTab();
+	
+	
+});
+var cnt = 0;
+function clickTab(hash)
+{	
+	
+	$('.tab').removeClass('active');
+	if(!hash)
+		hash = getHash()
+
+		if(cnt == 1){
+			$('.info').hide()
+		}	
+	
+	if(hash == "admin"){
+		$('#login-admin').show();
+		$('#login-student').hide();
+		$('#tab-admin').addClass("active");
+		$('#login-admin input:first').focus()
+	}
+	else {
+		$('#login-admin').hide();
+		$('#login-student').show();
+		$('#tab-student').addClass("active");
+		$('#login-student input:first').focus()
+	}
+	cnt++;
+}
+</script>
+
+<div style="text-align:center">
+	<ul id="login-tab">
+		<li><a href="#student" id="tab-student" class="tab" onclick="clickTab('student')">Student Login</a></li>
+        
+		<li><a href="#admin" id="tab-admin" class="tab" onclick="clickTab('admin')">Admin Login</a></li>
+        
+	</ul>
+	
+	<div id="login">
+		<h1 id="title">test</h1>
+		
+		
+		
+		
+		<div id="login-admin">
+        
+            <form method="post" action="//testmoz.com/1828576">
+                <input type='hidden' name='csrfmiddlewaretoken' value='QLGDpi5la9Z3AIWdEVsYrM2LAzbKTzOd' />
+                <input type="text" name="bogusField" style="display: none;" />
+                
+				<label>Admin Password</label><br />
+                <input id="id_admin-password" name="admin-password" type="password" />
+				<br /><br />
+                <input type="hidden" name="admin" value="login" />
+				<input type="submit" value="Login" name="admin" />
+				<br /><br />
+				<small>
+                
+                <a href="/">Testmoz Home</a></small>
+
+			</form>
+        
+		</div>
+		
+		
+		<div id="login-student">
+            
+            
+
+			
+				<p class="error">This test is not yet published. You can take it, but your results will not be recorded.</p>
+                
+				<p>Click the Admin tab to edit this test.</p>
+                
+			
+		
+            <form method="post" action="//testmozusercontent.com/1828576/student/login">
+                <input type="text" name="bogusField" style="display: none;" />
+                <input type='hidden' name='csrfmiddlewaretoken' value='QLGDpi5la9Z3AIWdEVsYrM2LAzbKTzOd' />
+                <label>Your Name</label><br />
+                <input autocomplete="off" id="id_student-name" name="student-name" type="text" />
+				
+					<br /><br /><label>Passcode</label><br />
+                    <input id="id_student-passcode" name="student-passcode" type="password" />
+					
+				<br /><br />
+                <input type="hidden" name="admin" value="student" />
+				<input type="submit" value="Continue" name="student" />	
+			</form>
+		</div>	
+	</div>
+</div>
+
+</body>
+</html>

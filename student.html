@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>test</title>
+<meta name="description" content="" />
+<meta name="ROBOTS" content="NOODP" />
+
+<link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/media/favicon.ico" type="image/x-icon">
+<link href="/media/css/quiz.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/media/js/jquery.js"></script>
+<link href="/media/css/print.css" rel="stylesheet" type="text/css"  media="print" />
+
+
+
+</head>
+<body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6553843-8']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<div id="content">
+<h1 id="title">test</h1>
+
+<div id="introduction">
+
+</div>
+<script type="text/javascript">
+
+function error(k){
+	var id = '#question' + k.substr(1);
+	$(id + ' .question-info').addClass('has-error');
+	alert($(id).attr('summary'));
+	
+}
+
+function filledIn(){
+	$('.question-info').removeClass('has-error');
+	
+	var radio_groups = fetchRadioGroups();
+	var k;
+	for(k in radio_groups){
+		if(!checkRadioGroup(k)){
+			error(k);
+			return false;
+		}
+	}
+
+	var checkbox_groups = fetchCheckboxGroups();
+	for(k in checkbox_groups){
+		if(!checkCheckboxGroup(k)){
+			error(k);
+			return false;
+		}
+	}
+
+	var textboxes = fetchTextboxes();
+	for(k in textboxes){
+		if(!checkTextbox(k)){
+			error(k);
+			return false;
+		}
+	}
+
+	return true;
+}
+
+function fetchRadioGroups(){
+	var elements = $('#main-form input[type=radio]');
+	var groups = {}
+	for(var i = 0; i < elements.length; i++){
+		groups['' + $(elements[i]).attr('name') + ''] = true
+	} 
+	return groups;
+}
+
+function checkRadioGroup(name){
+	var elements = $('#main-form input:checked[name=' + name + ']');
+	return elements.length != 0;
+}
+
+function fetchCheckboxGroups(){
+	var elements = $('#main-form input[type=checkbox]')
+	var groups = {}
+	for(var i = 0; i < elements.length; i++){
+		var name = $(elements[i]).attr('name').replace(/\[.*/, '')
+		groups[name] = true
+	}
+
+	return groups;
+}
+
+function checkCheckboxGroup(name){
+	var elements = $('#main-form input:checked[name^=' + name + ']');
+	return elements.length != 0;
+}
+
+function fetchTextboxes(){
+	var elements = $('#main-form input[type=text]')
+	var groups = {}
+	for(var i = 0; i < elements.length; i++){
+		groups[$(elements[i]).attr('name')] = true;
+	}
+	return groups;
+}
+
+function checkTextbox(name){
+	return $('#main-form input[name=' + name + ']').val().length > 0;
+}
+
+
+</script>
+<form method="post" action="" id="main-form" autocomplete="off">
+    <input type='hidden' name='csrfmiddlewaretoken' value='zZfxZ2FYQb5dTJoUqhenAJi1UkNiRWdm' />
+    
+    
+        <table class="question-table" cellpadding="0" cellspacing="0" id="question21635786" summary="You did not answer question 1">
+            <tr>
+                <th colspan="2" class="question-info ">
+                    Question #1 
+                    
+                        <span class="light">(1 point)</span>
+                    
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2" class="question"><p>Test pitanje 1.</p>
+</td>
+            </tr>
+
+            
+                
+                    <tr>
+                        <td class="input"><input id="21635786_0" name="q-21635786" type="radio" value="94023318" /></td>
+                        <td class="answer"><label for="21635786_0">test odgovor 1</label></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="input"><input id="21635786_1" name="q-21635786" type="radio" value="94023320" /></td>
+                        <td class="answer"><label for="21635786_1">test odgovor 2test</label></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="input"><input id="21635786_2" name="q-21635786" type="radio" value="94023322" /></td>
+                        <td class="answer"><label for="21635786_2">test odgovor 3</label></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="input"><input id="21635786_3" name="q-21635786" type="radio" value="94023324" /></td>
+                        <td class="answer"><label for="21635786_3">test odgovor 4</label></td>
+                    </tr>
+                
+            
+        </table>
+        <div class="break"></div>
+     
+    <p id="submit"><input type="submit" value="Submit" name="submit" /><a href="/1828576/student/logout" onclick="return confirm('Click ok if you really want to leave the test. Your answers will NOT be saved.')">Logout</a></p>
+</form>
+</div>
+
+
+</body>
+</html>

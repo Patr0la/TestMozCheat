@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cheerio": "^0.22.9",
+    "@types/node": "^10.10.1",
+    "@types/request": "^2.47.1",
+    "@types/socket.io": "^1.4.38",
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.88.0",
+    "socket.io": "^2.1.1"
+  }
+}
