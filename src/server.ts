@@ -92,7 +92,7 @@ var MainServer = http.createServer((req, res) => {
             }
         });
     }
-}).listen(8000);
+}).listen(8080);
 
 interface PredajData {
     uuid : string,

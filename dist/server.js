@@ -88,7 +88,7 @@ var MainServer = http.createServer(function (req, res) {
             }
         });
     }
-}).listen(8000);
+}).listen(8080);
 var io = SocketIO(MainServer);
 io.on("connection", function (socket) {
     socket.emit("indentification", { indentification: "expected" });
