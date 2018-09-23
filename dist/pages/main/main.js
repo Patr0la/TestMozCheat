@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     uuid = data.uuid;
                     questions = data.questions;
 
-                    socket = io('192.168.1.6:8000');
+                    socket = io('http://indexroute-testmozcheat.1d35.starter-us-east-1.openshiftapps.com/');
                     console.log(socket);
                     socket.on('indentification', function (data) {
                         console.log(data);
