@@ -32,6 +32,15 @@ var MainServer = http.createServer((req, res) => {
                 });
                 res.end(file);
             });
+        } else if (req.url == "/main.css") {
+            fs.readFile("./dist/pages/main/main.css", (err, file) => {
+                if (err) throw err;
+
+                res.writeHead(200, "OK", {
+                    "Content-Type": "css/stylesheet"
+                });
+                res.end(file);
+            });
         } else if (req.url == "/status") {
             res.writeHead(200, "OK", {
                 "Content-Type": "text/html"
