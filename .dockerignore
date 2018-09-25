@@ -1,8 +1,0 @@
-node_modules
-npm-debug.log
-src
-.vscode
-out.txt
-README.md
-student
-tsconfig.json
