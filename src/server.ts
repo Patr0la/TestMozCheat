@@ -101,7 +101,7 @@ var MainServer = http.createServer((req, res) => {
             }
         });
     }
-}).listen(8080);
+}).listen(process.env.PORT);
 
 interface PredajData {
     uuid : string,
